@@ -51,9 +51,11 @@ To run other scripts individually, run the following command:
 ## Process Diagram
 The entire monitoring process, which is orchestrated by the `fullprocess.py` script, follows the diagram below:
 
-![process_flow](images/process_flow.png)
+![process_flow](https://github.com/Gianatmaja/ML-Monitoring-for-Attrition-Risk-Assessment-System/blob/main/images/process_flow.png)
 
 This process can be setup to run automatically at specific intervals using `cron`. The shell command used to do this can be found in `cronjob.txt`. This command tells the `fullprocess.py` script to run every 10 minutes.
+
+For more information on cron expressions, check out their [documentation](https://docs.oracle.com/cd/E12058_01/doc/doc.1014/e12030/cron_expressions.htm).
 
 
 ### Data Ingestion
@@ -67,8 +69,12 @@ Using the new data produced in the step above, the script will proceed to test t
 
 Other than model drift, data drift will also be assessed and reported using EvidentlyAI.
 
-![data_drift_dashboard](images/drift_report.png)
+![data_drift_dashboard](https://github.com/Gianatmaja/ML-Monitoring-for-Attrition-Risk-Assessment-System/blob/main/images/drift_report.png)
+
+For more information on EvidentlyAI, check out their [documentation](https://docs.evidentlyai.com/).
 
 
 ### Flask API
 The codes for the Flask API are defined in the `app.py` script, which can be run via the command line or terminal. As models are retrained and redeployed, the app will continuously update as well. To test the endpoints defined in the `app.py` script, run `apicalls.py` in a separate CL/terminal tab.
+
+For more information on Flask, check out their [documentation](https://flask.palletsprojects.com/en/2.3.x/).
