@@ -1,6 +1,7 @@
 # ML Monitoring for an Attrition Risk Assessment System
 A simple framework for machine learning models post deployment, which in this project, is applied to an attrition risk assessment system.
 
+
 ## Project Structure
 This repository follows the following structure:
 
@@ -28,6 +29,7 @@ This repository follows the following structure:
     ├── cronjob.txt
     └── README.md
 
+
 ## Running the Project
 To install the requirements, run the following command:
 
@@ -45,3 +47,14 @@ To run other scripts individually, run the following command:
 
     python {SCRIPT_NAME}.py
 
+
+## Process Diagram
+The monitoring process follows the diagram below:
+
+![process_flow](images/process_flow.png)
+
+
+### Data Ingestion
+
+
+### Model Retraining & Redeployment
