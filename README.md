@@ -39,7 +39,7 @@ To run the app locally, run the following command:
 
 To run the API calls, open a new CL/terminal tab, then run the following command:
 
-    pytest apicalls.py
+    python apicalls.py
 
 To run other scripts individually, run the following command:
 
