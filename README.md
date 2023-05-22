@@ -49,12 +49,26 @@ To run other scripts individually, run the following command:
 
 
 ## Process Diagram
-The monitoring process follows the diagram below:
+The entire monitoring process, which is orchestrated by the `fullprocess.py` script, follows the diagram below:
 
 ![process_flow](images/process_flow.png)
 
+This process can be setup to run automatically at specific intervals using `cron`. The shell command used to do this can be found in `cronjob.txt`. This command tells the `fullprocess.py` script to run every 10 minutes.
+
 
 ### Data Ingestion
+First, the script will check for new data under the `input_folder_path`, defined in `config.json`. If new data is present, the ingestion process, defined by the `ingestion.py` script, will run and produce a new dataset, stored under `output_folder_path`, again defined in config.json.
+
+In this example, the paths are just subdirectories. However, the same concept can be extended to other data storage options.
 
 
 ### Model Retraining & Redeployment
+Using the new data produced in the step above, the script will proceed to test the existing model, stored in `prod_deployment_path`, against this new data. The model scores are recorded, and if model drift is detected, the script will initiate the retraining and redeployment steps (defined in the `training.py` and `deployment.py` scripts), before finally initiating the reporting and diagnostics steps (defined in the `reporting.py` and `diagnostics.py` scripts).
+
+Other than model drift, data drift will also be assessed and reported using EvidentlyAI.
+
+![data_drift_dashboard](images/drift_report.png)
+
+
+### Flask API
+The codes for the Flask API are defined in the `app.py` script, which can be run via the command line or terminal. As models are retrained and redeployed, the app will continuously update as well. To test the endpoints defined in the `app.py` script, run `apicalls.py` in a separate CL/terminal tab.
