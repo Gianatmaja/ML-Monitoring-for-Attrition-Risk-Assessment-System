@@ -58,6 +58,13 @@ def main():
 
     # Ingest if new data is available
     df_ingested = ingestion.merge_multiple_dataframe()
+
+    # Check for data drift
+    df_old = pd.read_csv('{}/finaldata.csv'.format(output_folder_path))
+    data_drift_report = diagnostics.get_data_drift_report(df_old, df_ingested)
+    data_drift_report.save_html('{}/drift_report.html'.format(output_folder_path))
+
+    # Save newly ingested data
     filename = output_folder_path + "/" + "finaldata.csv"
     df_ingested.to_csv(filename, index = False)
     
