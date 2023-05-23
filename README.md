@@ -48,7 +48,7 @@ To run other scripts individually, run the following command:
     python {SCRIPT_NAME}.py
 
 
-## Process Diagram
+## The ML Monitoring Process
 The entire monitoring process, which is orchestrated by the `fullprocess.py` script, follows the diagram below:
 
 ![process_flow](https://github.com/Gianatmaja/ML-Monitoring-for-Attrition-Risk-Assessment-System/blob/main/images/process_flow.png)
