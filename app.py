@@ -1,5 +1,6 @@
 '''
-This file sets up the API using Flask, and connects it with functions defined throughout the project.
+This file sets up the API using Flask, and connects it with functions defined throughout the project. The functions
+will be imported from the diagnostics and scoring script.
 
 Author: Gian Atmaja
 Date Created: 20 May 2023
